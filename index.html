@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML list attribute</title>
+  <style>
+    body {
+      padding: 1rem;
+      --border-color: #ded8d8;
+    }
+    article {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: .5rem;
+    }
+
+    section {
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      padding: 1rem;
+    }
+
+    article > p {
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      padding: 1rem;
+      margin: 0;
+      font-size: 1.2rem;
+    }
+    @media (min-width: 600px) {
+      article > p {
+        grid-column: span 3;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>HTML <code>list</code> Attribute Demo </h1>
+  </header>
+  <main>
+    <article>
+      <p>
+        The value given to the <code>list</code> attribute should be the <code>id</code> of a <code>datalist</code> element located in the same document. 
+        The <code>datalist</code> provides a list of predefined values to suggest to the user for this input. 
+        Any values in the list that are not compatible with the type are not included in the suggested options. 
+        The values provided are suggestions, not requirements: users can select from this predefined list or provide a different value.
+
+        It is valid on <code>text</code>, <code>search</code>, <code>url</code>, <code>tel</code>, <code>email</code>, 
+        <code>date</code>, <code>month</code>, <code>week</code>, <code>time</code>, <code>datetime-local</code>, <code>number</code>, 
+        <code>range</code>, and <code>color</code>.
+        
+        Per the specifications, the list attribute is not supported by the <code>hidden</code>, <code>password</code>, 
+        <code>checkbox</code>, <code>radio</code>, <code>file</code>, or any of the button types.
+        <br /><br />
+        <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#list">https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#list</a>
+      </p>
+      <section>
+        <h2>Text field</h2>
+        <label for="ice-cream-choice">Choose a flavor:</label>
+        <input list="ice-cream-flavors" id="ice-cream-choice" name="ice-cream-choice" />
+        <datalist id="ice-cream-flavors">
+          <option value="Chocolate"></option>
+          <option value="Coconut"></option>
+          <option value="Mint"></option>
+          <option value="Strawberry"></option>
+          <option value="Vanilla"></option>
+        </datalist>
+      </section>
+
+      <section>
+        <h2>Search field</h2>
+        <label for="search-query">Search:</label>
+        <input type="search" list="search-options" id="search-query" name="search-query" />
+        <datalist id="search-options">
+          <option value="Apple"></option>
+          <option value="Banana"></option>
+          <option value="Orange"></option>
+          <option value="Mango"></option>
+        </datalist>
+      </section>
+
+      <section>
+        <h2>URL field</h2>
+        <label for="website-url">Website URL:</label>
+        <input type="url" list="url-options" id="website-url" name="website-url" />
+        <datalist id="url-options">
+          <option value="https://www.example.com"></option>
+          <option value="https://www.google.com"></option>
+          <option value="https://www.github.com"></option>
+          <option value="https://www.stackoverflow.com"></option>
+        </datalist>
+      </section>
+
+      <section>
+        <h2>Tel field</h2>
+        <label for="phone-number">Phone Number:</label>
+        <input type="tel" list="tel-options" id="phone-number" name="phone-number" />
+        <datalist id="tel-options">
+          <option value="123-456-7890"></option>
+          <option value="987-654-3210"></option>
+          <option value="555-123-4567"></option>
+          <option value="888-999-0000"></option>
+        </datalist>
+      </section>
+
+      <section>
+        <h2>Email field</h2>
+        <label for="email-address">Email Address:</label>
+        <input type="email" list="email-options" id="email-address" name="email-address" />
+        <datalist id="email-options">
+          <option value="john@example.com"></option>
+          <option value="jane@example.com"></option>
+          <option value="info@example.com"></option>
+          <option value="contact@example.com"></option>
+        </datalist>
+      </section>
+
+      <section>
+        <h2>Date field</h2>
+        <label for="event-date">Select event date:</label>
+        <input type="date" list="event-dates" id="event-date" name="event-date" />
+        <datalist id="event-dates">
+          <option value="2022-01-01"></option>
+          <option value="2022-02-14"></option>
+          <option value="2022-03-17"></option>
+          <option value="2022-04-22"></option>
+        </datalist>
+      </section>
+
+      <section>
+        <h2>Month field</h2>
+        <label for="month-selection">Select a month:</label>
+        <input type="month" list="month-options" id="month-selection" name="month-selection" />
+        <datalist id="month-options">
+          <option value="2022-01"></option>
+          <option value="2022-02"></option>
+          <option value="2022-03"></option>
+          <option value="2022-04"></option>
+        </datalist>
+      </section>
+
+      <section>
+        <h2>Week field</h2>
+        <label for="week-selection">Select a week:</label>
+        <input type="week" list="week-options" id="week-selection" name="week-selection" />
+        <datalist id="week-options">
+          <option value="2022-W01"></option>
+          <option value="2022-W02"></option>
+          <option value="2022-W03"></option>
+          <option value="2022-W04"></option>
+        </datalist>
+      </section>
+
+      <section>
+        <h2>Time field</h2>
+        <label for="time-selection">Select a time:</label>
+        <input type="time" list="time-options" id="time-selection" name="time-selection" />
+        <datalist id="time-options">
+          <option value="09:00"></option>
+          <option value="12:00"></option>
+          <option value="15:30"></option>
+          <option value="18:00"></option>
+        </datalist>
+      </section>
+
+      <section>
+        <h2>Datetime-local field</h2>
+        <label for="datetime-selection">Select a date and time:</label>
+        <input type="datetime-local" list="datetime-options" id="datetime-selection" name="datetime-selection" />
+        <datalist id="datetime-options">
+          <option value="2022-01-01T09:00"></option>
+          <option value="2022-02-14T12:00"></option>
+          <option value="2022-03-17T15:30"></option>
+          <option value="2022-04-22T18:00"></option>
+        </datalist>
+      </section>
+
+      <section>
+        <h2>Number field</h2>
+        <label for="quantity">Quantity:</label>
+        <input type="number" list="quantity-options" id="quantity" name="quantity" />
+        <datalist id="quantity-options">
+          <option value="1"></option>
+          <option value="5"></option>
+          <option value="10"></option>
+          <option value="20"></option>
+        </datalist>
+      </section>
+
+      <section>
+        <h2>Range field</h2>
+        <label for="volume">Volume:</label>
+        <input type="range" list="volume-options" id="volume" name="volume" min="0" max="100" step="10" />
+        <datalist id="volume-options">
+          <option value="0"></option>
+          <option value="25"></option>
+          <option value="50"></option>
+          <option value="75"></option>
+          <option value="100"></option>
+        </datalist>
+      </section>
+
+      <section>
+        <h2>Color field</h2>
+        <label for="color-picker">Choose a color:</label>
+        <input type="color" list="color-options" id="color-picker" name="color-picker" />
+        <datalist id="color-options">
+          <option value="#ff0000"></option>
+          <option value="#00ff00"></option>
+          <option value="#0000ff"></option>
+          <option value="#ffff00"></option>
+        </datalist>
+      </section>
+    </article>
+  </main>
+  <footer>
+
+  </footer>
+</body>
+</html>
